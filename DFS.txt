@@ -1,0 +1,52 @@
+#include<stdio.h>
+#define MAX 10
+
+void dfs(int ,int);
+int visited[MAX]={0};   //It initialize all elements to 0
+int graph[MAX][MAX];
+int main()
+{
+    int n,i,j,source;
+    printf("Enter the total no. of vertex: ");
+    scanf("%d",&n);
+    printf("Now enter the Adjacency Matrix:\n");
+    for(i=0;i<n;i++)
+        for(j=0;j<n;j++)
+            scanf("%d",&graph[i][j]);
+
+    printf("Enter Source vertex of Traversal: ");
+    scanf("%d",&source);
+    dfs(source,n);
+}
+void dfs(int source,int n)
+{
+    int i;
+    printf("%d->",source);
+    visited[source]=1;
+
+    for(i=0;i<n;i++){
+        if(graph[source][i]==1){
+            if(visited[i]==0){
+                dfs(i,n);
+            }
+        }
+    }
+}
+/*
+0 1 0 1 0
+1 0 1 1 0
+0 1 0 0 1
+1 1 0 0 1
+0 0 1 1 0
+
+
+0 1 1 0 0 0 0 0
+1 0 0 1 1 0 0 0
+1 0 0 0 0 1 1 0
+0 1 0 0 0 0 0 1
+0 1 0 0 0 0 0 1
+0 0 1 0 0 0 0 1
+0 0 1 0 0 0 0 1
+0 0 0 1 1 1 1 0
+
+*/

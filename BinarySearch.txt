@@ -1,0 +1,60 @@
+/*Binary Search Algorithm
+
+BinarySearch(A,n,x)
+{
+    start<- 0
+    end <- n-1
+    while(start<=end)
+    {
+        mid<-(start+end)/2
+        if A[mid]==x
+            return mid
+        else if x< A[mid]
+            end<-mid-1
+        else
+            start<-mid+1
+        return -1
+    }
+}
+*/
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,a[50],i,key,l,u,flag=0,mid;
+    printf("Enter the no. of elements you needed:\t");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+        scanf("%d",&a[i]);
+    printf("Enter the no. to be searched:\t");
+    scanf("%d",&key);
+    l=1;u=n;
+    while(mid!=u || mid!=l)
+    {
+        mid=(l+u)/2;
+        if(a[mid]==key)
+        {
+
+            flag=0;
+            break;
+
+        }
+        else
+        {
+            if(key < a[mid])
+                u=mid-1;
+            else
+                l=mid+1;
+        }
+        flag=1;
+    }
+    if (flag==1)
+        printf("Element not found\n");
+    else
+        printf("Element found at position %d",mid);
+    return 0;
+}

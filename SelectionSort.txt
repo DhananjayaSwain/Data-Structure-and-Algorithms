@@ -1,0 +1,63 @@
+/*
+Selection Sort Algorithm
+
+SelectionSort(A,n)
+{
+    for i<-0 to n-2
+    {
+        iMin<-i
+        for j<-i+1 to n-1
+        {
+            if(A[j] <A[iMin])
+                iMin<-j
+        }
+        temp<-A[i]
+        A[i]<-A[iMin]
+        A[iMin]<-temp
+    }
+}
+*/
+
+#include<stdio.h>
+void SelectionSort(int a[],int);
+int main()
+{
+    int i;
+    int a[]={2,6,7,4,3,9,1};
+    int size=(sizeof(a)/sizeof (a[0]));
+
+    printf("Unsorted Array is:");
+    for(i=0;i<size;i++)
+    {
+         printf("%d ",a[i]);
+    }
+    SelectionSort(a,size);
+    printf("\n");
+    printf("After selection sort:");
+   for(i=0;i<size;i++)
+    {
+         printf("%d ",a[i]);
+    }
+
+}
+void SelectionSort(int a[],int size)
+{
+
+ int i, j, pos, min;
+ for(i = 0; i <= size-1; i++)
+    {
+        min = a[i];
+        pos = i;
+        for (j = i+1; j <= size-1; j++)
+        {
+            if(a[j] < min)
+            {
+                    min = a[j];
+                    pos = j;
+            }
+        }
+       a[pos] = a[i];
+       a[i] = min;
+
+    }
+}

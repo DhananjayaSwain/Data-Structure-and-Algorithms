@@ -1,0 +1,53 @@
+/* Bubble Sort Algo
+
+BubbleSort(A,n)
+{
+    for k<-1 to n-1
+    {
+        for i<-0 to n-2
+        {
+            if (A[i] >A[i+1])
+            {
+                swap(A[i],A[i+1])
+            }
+        }
+    }
+}
+*/
+
+
+
+
+
+
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+    int a[100],i,j,n,temp;
+    printf("Enter the size of the array:\n");
+    scanf("%d",&n);
+    printf("Please enter the array elements:\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n-1-i;j++)
+        {
+            if(a[j]<a[j+1])
+            {
+                 temp=a[j];
+                 a[j]=a[j+1];
+                 a[j+1]=temp;
+            }
+        }
+    }
+    printf("The shorted array is as fllows:\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d",a[i]);
+    }
+}
